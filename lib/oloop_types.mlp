@@ -234,7 +234,16 @@ let serialize_typedecl_error =
   | Unbound_type_var_ext (e, c) -> S_Unbound_type_var_ext(e, c)
 #endif
   | Varying_anonymous -> S_Varying_anonymous
-
+#if OCAML_VERSION >= (4, 04, 0)
+  | Val_in_structure
+  | Multiple_native_repr_attributes
+  | Bad_immediate_attribute
+  | Wrong_unboxed_type_float 
+  | Boxed_and_unboxed
+  | Cannot_unbox_or_untag_type _
+  | Deep_unbox_or_untag_attribute _
+  | Bad_unboxed_attribute _ -> assert false
+#endif
 
 (* [env_of_summary] requires that the path and initial environment are
    initialized.  This is not necessary for the toploop thus is done in
@@ -359,7 +368,7 @@ type serializable_typeclass_error =
   | S_Structure_expected of class_type
   | S_Cannot_apply of class_type
 #if OCAML_VERSION >= (4, 03, 0)
-  | S_Apply_wrong_label of arg_label
+  | S_Apply_wrong_label of Asttypes.arg_label
 #else
   | S_Apply_wrong_label of Asttypes.label
 #endif

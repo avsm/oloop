@@ -43,7 +43,7 @@ let line_to_part_num ~filename line : float option Or_error.t =
     try Ok (Some (Scanf.sscanf lstripped "(* %_s %f *)" ident))
     with _ ->
       error "invalid (* part N *) line"
-        (filename,line) <:sexp_of< string * string >>
+        (filename,line) [%sexp_of: (string * string)]
   )
   else
     Ok None
@@ -74,7 +74,7 @@ let of_string ~filename contents =
     Ok parts
   else
     error "part numbers not strictly increasing"
-      (filename,part_nums) <:sexp_of< string * float list >>
+      (filename,part_nums) [%sexp_of: (string * float list)]
 
 let of_file filename =
   Reader.file_contents filename

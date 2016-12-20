@@ -82,7 +82,7 @@ type uneval = [
                 * Oloop_ocaml.Typeclass.error
 | `Symtable of Oloop_ocaml.Symtable.error
 | `Internal_error of string
-] with sexp
+] [@@deriving sexp_of]
 
 type 'a t = [
 | `Eval of 'a eval

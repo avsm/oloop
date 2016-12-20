@@ -47,8 +47,11 @@ type out_phrase =
 val print : Format.formatter -> out_phrase -> unit
 
 
-type separate (** Stdout and stderr are collected separately. *)
-type merged   (** Stderr is redirected to stdout. *)
+type separate
+(** Stdout and stderr are collected separately. *)
+
+type merged 
+(** Stderr is redirected to stdout. *)
 
 type 'a kind
 (** Specify whether one wants separate stdout and stderr or not. *)
@@ -87,7 +90,7 @@ type uneval = [
 | `Typeclass of Location.t * Env.t * Typeclass.error
 | `Symtable of Symtable.error
 | `Internal_error of string
-] with sexp
+] [@@deriving sexp_of]
 
 (** The outcome of evaluating a phrase. *)
 type 'a t = [

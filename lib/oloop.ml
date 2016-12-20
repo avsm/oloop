@@ -250,6 +250,5 @@ module Location = struct
     include Location
 
     let sexp_of_t = Oloop_ocaml.Location.sexp_of_t
-    let t_of_sexp = Oloop_ocaml.Location.t_of_sexp
   end
 ;;
