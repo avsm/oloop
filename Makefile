@@ -26,7 +26,7 @@ test doc install uninstall reinstall: all
 	ocaml setup.ml -$@
 
 opam $(OPAM_FILES): _oasis
-	oasis2opam --local
+	#oasis2opam --local
 
 tar: $(DISTFILES)
 	mkdir $(PKGNAME)-$(PKGVERSION)

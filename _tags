@@ -1,4 +1,117 @@
 # OASIS_START
+# DO NOT EDIT (digest: 5f50687a254542afbf72b77ddf95b15a)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+true: annot, bin_annot
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library oloop
+"lib/oloop.cmxs": use_oloop
+<lib/oloop.{cma,cmxa}>: oasis_library_oloop_byte
+<lib/*.ml{,i,y}>: oasis_library_oloop_byte
+<lib/oloop.{cma,cmxa}>: oasis_library_oloop_native
+<lib/*.ml{,i,y}>: oasis_library_oloop_native
+<lib/*.ml{,i,y}>: pkg_async
+<lib/*.ml{,i,y}>: pkg_compiler-libs.bytecomp
+<lib/*.ml{,i,y}>: pkg_compiler-libs.common
+<lib/*.ml{,i,y}>: pkg_core_kernel
+<lib/*.ml{,i,y}>: pkg_ppx_sexp_conv
+# Executable oloop-top
+"lib/oloop-top.byte": pkg_bytes
+"lib/oloop-top.byte": pkg_compiler-libs.toplevel
+"lib/oloop-top.byte": pkg_dynlink
+"lib/oloop-top.byte": pkg_unix
+<lib/*.ml{,i,y}>: pkg_bytes
+<lib/*.ml{,i,y}>: pkg_compiler-libs.toplevel
+<lib/*.ml{,i,y}>: pkg_dynlink
+<lib/*.ml{,i,y}>: pkg_unix
+# Executable oloop
+<app/app.{native,byte}>: pkg_async
+<app/app.{native,byte}>: pkg_bytes
+<app/app.{native,byte}>: pkg_compiler-libs.bytecomp
+<app/app.{native,byte}>: pkg_compiler-libs.common
+<app/app.{native,byte}>: pkg_core_kernel
+<app/app.{native,byte}>: pkg_ppx_sexp_conv
+<app/app.{native,byte}>: use_oloop
+<app/*.ml{,i,y}>: pkg_async
+<app/*.ml{,i,y}>: pkg_bytes
+<app/*.ml{,i,y}>: pkg_compiler-libs.bytecomp
+<app/*.ml{,i,y}>: pkg_compiler-libs.common
+<app/*.ml{,i,y}>: pkg_core_kernel
+<app/*.ml{,i,y}>: pkg_ppx_sexp_conv
+<app/*.ml{,i,y}>: use_oloop
+# Executable basic
+<tests/test_basic.{native,byte}>: pkg_async
+<tests/test_basic.{native,byte}>: pkg_bytes
+<tests/test_basic.{native,byte}>: pkg_compiler-libs.bytecomp
+<tests/test_basic.{native,byte}>: pkg_compiler-libs.common
+<tests/test_basic.{native,byte}>: pkg_core_kernel
+<tests/test_basic.{native,byte}>: pkg_ppx_sexp_conv
+<tests/test_basic.{native,byte}>: use_oloop
+# Executable require
+<tests/test_require.{native,byte}>: pkg_async
+<tests/test_require.{native,byte}>: pkg_bytes
+<tests/test_require.{native,byte}>: pkg_compiler-libs.bytecomp
+<tests/test_require.{native,byte}>: pkg_compiler-libs.common
+<tests/test_require.{native,byte}>: pkg_core_kernel
+<tests/test_require.{native,byte}>: pkg_ppx_sexp_conv
+<tests/test_require.{native,byte}>: use_oloop
+# Executable deferred
+<tests/test_deferred.{native,byte}>: pkg_async
+<tests/test_deferred.{native,byte}>: pkg_bytes
+<tests/test_deferred.{native,byte}>: pkg_compiler-libs.bytecomp
+<tests/test_deferred.{native,byte}>: pkg_compiler-libs.common
+<tests/test_deferred.{native,byte}>: pkg_core_kernel
+<tests/test_deferred.{native,byte}>: pkg_ppx_sexp_conv
+<tests/test_deferred.{native,byte}>: use_oloop
+# Executable error
+<tests/test_error.{native,byte}>: pkg_async
+<tests/test_error.{native,byte}>: pkg_bytes
+<tests/test_error.{native,byte}>: pkg_compiler-libs.bytecomp
+<tests/test_error.{native,byte}>: pkg_compiler-libs.common
+<tests/test_error.{native,byte}>: pkg_core_kernel
+<tests/test_error.{native,byte}>: pkg_ppx_sexp_conv
+<tests/test_error.{native,byte}>: use_oloop
+# Executable warning
+<tests/test_warning.{native,byte}>: pkg_async
+<tests/test_warning.{native,byte}>: pkg_bytes
+<tests/test_warning.{native,byte}>: pkg_compiler-libs.bytecomp
+<tests/test_warning.{native,byte}>: pkg_compiler-libs.common
+<tests/test_warning.{native,byte}>: pkg_core_kernel
+<tests/test_warning.{native,byte}>: pkg_ppx_sexp_conv
+<tests/test_warning.{native,byte}>: use_oloop
+# Executable multiple
+<tests/test_multiple.{native,byte}>: pkg_async
+<tests/test_multiple.{native,byte}>: pkg_bytes
+<tests/test_multiple.{native,byte}>: pkg_compiler-libs.bytecomp
+<tests/test_multiple.{native,byte}>: pkg_compiler-libs.common
+<tests/test_multiple.{native,byte}>: pkg_core_kernel
+<tests/test_multiple.{native,byte}>: pkg_ppx_sexp_conv
+<tests/test_multiple.{native,byte}>: use_oloop
+# Executable inexisting_toploop
+<tests/test_inexisting_toploop.{native,byte}>: pkg_async
+<tests/test_inexisting_toploop.{native,byte}>: pkg_bytes
+<tests/test_inexisting_toploop.{native,byte}>: pkg_compiler-libs.bytecomp
+<tests/test_inexisting_toploop.{native,byte}>: pkg_compiler-libs.common
+<tests/test_inexisting_toploop.{native,byte}>: pkg_core_kernel
+<tests/test_inexisting_toploop.{native,byte}>: pkg_ppx_sexp_conv
+<tests/test_inexisting_toploop.{native,byte}>: use_oloop
+<tests/*.ml{,i,y}>: pkg_async
+<tests/*.ml{,i,y}>: pkg_bytes
+<tests/*.ml{,i,y}>: pkg_compiler-libs.bytecomp
+<tests/*.ml{,i,y}>: pkg_compiler-libs.common
+<tests/*.ml{,i,y}>: pkg_core_kernel
+<tests/*.ml{,i,y}>: pkg_ppx_sexp_conv
+<tests/*.ml{,i,y}>: use_oloop
 # OASIS_STOP
 
 true: annot, bin_annot, short_paths
